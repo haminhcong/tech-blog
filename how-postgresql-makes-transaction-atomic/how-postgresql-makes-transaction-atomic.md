@@ -329,10 +329,11 @@ SetHintBits(tuple, buffer, HEAP_XMIN_COMMITTED,
             HeapTupleHeaderGetRawXmin(tuple));
 ```
 
-Các row đã được đánh dấu hintbit sẽ không cần thực hiện quét lại danh sách commit log mỗi lần xây dựng `snapshot visibility` nữa.
+Hintbit của một row version cho biết row version này đang trong một transaction đang diễn ra, hay transaction đã commit hoặc đã huỷ bỏ. Các row đã được đánh dấu hintbit sẽ không cần thực hiện quét lại danh sách commit log mỗi lần xây dựng `snapshot visibility` nữa.
 
 ## Tài liệu tham khảo
 
 - https://brandur.org/postgres-atomicity
 - https://malisper.me/the-postgres-commit-log/
 - https://www.interdb.jp/pg/pgsql05.html
+- https://wiki.postgresql.org/wiki/Hint_Bits
